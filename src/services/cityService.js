@@ -4,7 +4,7 @@ import cities from '../data/cities.json'
 export default class CityService {
 
     static async getGeoAddresFromLatLng(latitude, longitude) {
-        let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAuqZ4hU1vUqRjT6LQjZfH1TaTk4EmxOXY`;
+        let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=your api key`;
         const response = await APIClient.get(url);
         return Promise.resolve(response.data);
     }
