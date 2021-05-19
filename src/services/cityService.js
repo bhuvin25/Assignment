@@ -10,7 +10,8 @@ export default class CityService {
     }
 
     static async getCityList(){
-        const response = await cities
-        return Promise.resolve(response)
+        let url = `https://uniquecityvalidator.azurewebsites.net/api/getValidAddresses?code=z3phTZQd6v0iluj5XJTrAF7kbLX0xr1j0LQCq34xQjWuH9DNIHgJww==&clientId=default&name=Bhuvin`
+        const response = await APIClient.get(url);
+        return Promise.resolve(response.data)
     }
 }

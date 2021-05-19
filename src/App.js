@@ -46,8 +46,8 @@ class App extends Component {
   getValidCity = async (cityName) => {
     let validCity = ''
     const response = await CityService.getCityList();
-    if (response && response.length > 0) {
-      let filteredCity = response.find(x => x.name === cityName)
+    if (response && response != '' && response != null) {
+      let filteredCity = response.includes(cityName);
       if (filteredCity) {
         validCity = validation.IsValid
         this.setState({ validCity })
@@ -82,7 +82,7 @@ class App extends Component {
             ) {
               const cityName = await this.getCurrentCityName(position.coords.latitude, position.coords.longitude)
               if (cityName && cityName != '') {
-                validCity = await this.getValidCity(cityName)
+                await this.getValidCity(cityName)
               }
             } else {
               showToast(
